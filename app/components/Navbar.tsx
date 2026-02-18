@@ -2,21 +2,26 @@
 
 import Link from "next/link";
 import { CalendarDays } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
     <header className="w-full border-b bg-white sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         
-        {/* Left - Logo */}
-        <Link href="/" className="flex flex-col leading-none">
-          <span className="text-2xl font-serif italic tracking-wide">
-            Todd Michael
-          </span>
-          <span className="text-xs tracking-[0.2em] uppercase text-gray-500">
-            The Goldsmiths Bench
-          </span>
-        </Link>
+
+
+        <Link href="/" className="px-4 py-1" >
+            <Image
+              src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/6815f5f9c4f106f73030c696_file.svg"
+              alt="ShopifyTasker Logo"
+              width={200}
+              height={50}
+              className="h-auto"
+              priority
+            />
+          </Link>
+          
 
         {/* Center - Navigation */}
         <nav className="hidden md:flex items-center space-x-10 text-sm font-medium text-gray-700">

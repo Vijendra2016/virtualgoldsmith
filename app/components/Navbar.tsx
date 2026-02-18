@@ -13,7 +13,7 @@ export default function Navbar() {
 
         <Link href="/" className="px-4 py-1" >
             <Image
-              src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/6815f5f9c4f106f73030c696_file.svg"
+              src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/6995b58e5542fc97efa6a1b6_Virtaul%20Gold%20Smith.png"
               alt="ShopifyTasker Logo"
               width={200}
               height={50}

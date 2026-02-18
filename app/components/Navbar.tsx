@@ -24,19 +24,19 @@ export default function Navbar() {
             Home
           </Link>
           <Link href="/shop" className="hover:text-black transition">
-            Shop
+            About
           </Link>
           <Link href="/client-portal" className="hover:text-black transition">
-            Client Portal
+            Portfolio
           </Link>
           <Link href="/3d-scanning" className="hover:text-black transition">
-            3D Scanning
+            Resume
           </Link>
           <Link href="/blog" className="hover:text-black transition">
             Blog
           </Link>
           <Link href="/contact" className="hover:text-black transition">
-            Contact Us
+          Services
           </Link>
         </nav>
 

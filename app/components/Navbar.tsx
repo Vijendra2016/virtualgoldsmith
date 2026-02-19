@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Navbar() {
   return (
     <header className="w-full  bg-white sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between">
         
 
 

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import HeroImageSection from "./components/Heroimage";
 import ShowcaseSection from "./components/ShowcaseSection";
-import LineRevealSection from "./components/LineRevealSection";
 export default function Home() {
   return (
    
@@ -9,7 +8,6 @@ export default function Home() {
       
       <main className="flex min-h-screen w-full  flex-col items-center justify-between py-2 px-16 bg-white dark:bg-black sm:items-start">
        <HeroImageSection/>
-<LineRevealSection/>
        <ShowcaseSection
       cards={[
         {

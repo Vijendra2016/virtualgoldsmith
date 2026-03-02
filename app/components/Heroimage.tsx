@@ -7,7 +7,7 @@ export default function HeroImageSection() {
     <section className="relative h-[70vh] w-full overflow-hidden">
       {/* Background Image */}
       <img
-        src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/6995b8ca5cf0844656374fb5_Headingimage.png"
+        src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58c897d8a8a879d5f45dd_pexels-janakukebal-30541169.jpg"
         alt="eCommerce growth"
         className="absolute inset-0 w-full h-full object-cover"
       />

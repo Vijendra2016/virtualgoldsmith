@@ -16,8 +16,8 @@ interface ShowcaseSectionProps {
 
 export default function ShowcaseSection({ cards }: ShowcaseSectionProps) {
   return (
-    <section className="w-full  py-20">
-      <div className="max-w-[1400px] mx-auto px-6 grid md:grid-cols-2 gap-6">
+    <section className="w-full  py-10">
+      <div className="w-full mx-auto px-6 grid md:grid-cols-2 gap-6">
         {cards.map((card, index) => (
           <div key={index} className="group">
             

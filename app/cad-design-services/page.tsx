@@ -1,12 +1,12 @@
 import Image from "next/image";
-import HeroImageSection from "./components/Heroimage";
-import ShowcaseSection from "./components/ShowcaseSection";
+import HeroImageSection from "../components/Heroimage";
+import ShowcaseSection from "../components/ShowcaseSection";
 export default function Home() {
   return (
    
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       
-      <main className="flex min-h-screen w-full  flex-col items-center justify-between py-2 px-2 bg-white dark:bg-black sm:items-start">
+      <main className="flex min-h-screen w-full  flex-col items-center justify-between py-2 px-16 bg-white dark:bg-black sm:items-start">
        <HeroImageSection/>
        <ShowcaseSection
       cards={[
@@ -18,7 +18,7 @@ export default function Home() {
           href: '/royal-gold-ring',
         },
         {
-          image: 'https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58d5f081a4da94ec4e4c6_pexels-cottonbro-9430438.jpg',
+          image: 'https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58798bcce5ba0379b9510_ringgold.jpeg',
           title: 'Discover The Signature Necklace',
           description:
             'A bespoke necklace designed with modern refinement and traditional goldsmith mastery.',

@@ -6,8 +6,13 @@ import Image from "next/image";
 import { CalendarDays, Menu, X, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [serviceOpen, setServiceOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
+  const [serviceOpen, setServiceOpen] = useState<boolean>(false);
+
+  const closeMenus = () => {
+    setMobileOpen(false);
+    setServiceOpen(false);
+  };
 
   return (
     <>
@@ -19,34 +24,35 @@ export default function Navbar() {
       </div>
 
       {/* Navbar */}
-      <header className="w-full bg-white sticky top-0 z-50 ">
+      <header className="w-full bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center" onClick={closeMenus}>
             <Image
               src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/6995b58e5542fc97efa6a1b6_Virtaul%20Gold%20Smith.png"
               alt="Logo"
               width={150}
               height={60}
               priority
-              className=" w-auto"
+              className="w-auto"
             />
           </Link>
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-10 text-lg font-thin text-gray-700">
 
-            <Link href="/" className="hover:text-black">
+            <Link href="/" onClick={closeMenus}>
               Home
             </Link>
 
-            {/* Services Dropdown (Second Item) */}
-            <div className="relative">
-              <button
-                onClick={() => setServiceOpen(!serviceOpen)}
-                className="flex items-center gap-1 hover:text-black"
-              >
+            {/* Services Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setServiceOpen(true)}
+              onMouseLeave={() => setServiceOpen(false)}
+            >
+              <button className="flex items-center gap-1">
                 Services <ChevronDown size={16} />
               </button>
 
@@ -54,7 +60,8 @@ export default function Navbar() {
                 <div className="absolute top-8 left-0 bg-white border rounded-lg shadow-lg w-52 py-2">
 
                   <Link
-                    href="/services/cad-design"
+                    href="/cad-design-services"
+                    onClick={closeMenus}
                     className="block px-4 py-2 hover:bg-gray-100"
                   >
                     CAD Design
@@ -62,6 +69,7 @@ export default function Navbar() {
 
                   <Link
                     href="/services/3d-modeling"
+                    onClick={closeMenus}
                     className="block px-4 py-2 hover:bg-gray-100"
                   >
                     3D Modeling
@@ -69,6 +77,7 @@ export default function Navbar() {
 
                   <Link
                     href="/services/jewelry-rendering"
+                    onClick={closeMenus}
                     className="block px-4 py-2 hover:bg-gray-100"
                   >
                     Jewelry Rendering
@@ -78,19 +87,19 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link href="/about" className="hover:text-black">
+            <Link href="/about" onClick={closeMenus}>
               About
             </Link>
 
-            <Link href="/portfolio" className="hover:text-black">
+            <Link href="/portfolio" onClick={closeMenus}>
               Portfolio
             </Link>
 
-            <Link href="/resume" className="hover:text-black">
+            <Link href="/resume" onClick={closeMenus}>
               Resume
             </Link>
 
-            <Link href="/blog" className="hover:text-black">
+            <Link href="/blog" onClick={closeMenus}>
               Blog
             </Link>
 
@@ -99,7 +108,8 @@ export default function Navbar() {
           {/* CTA */}
           <Link
             href="/book-appointment"
-            className="hidden md:flex items-center bg-black text-white gap-2 text-sm font-medium border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100"
+            onClick={closeMenus}
+            className="hidden md:flex items-center bg-black text-white gap-2 text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-800"
           >
             <CalendarDays size={18} />
             Book Appointment
@@ -118,7 +128,7 @@ export default function Navbar() {
         {mobileOpen && (
           <div className="md:hidden px-6 pb-6 space-y-4 text-gray-700">
 
-            <Link href="/" className="block">
+            <Link href="/" onClick={closeMenus}>
               Home
             </Link>
 
@@ -133,44 +143,48 @@ export default function Navbar() {
 
               {serviceOpen && (
                 <div className="ml-4 mt-2 space-y-2">
-                  <Link href="/services/cad-design" className="block">
+
+                  <Link href="/cad-design-services" onClick={closeMenus}>
                     CAD Design
                   </Link>
 
-                  <Link href="/services/3d-modeling" className="block">
+                  <Link href="/services/3d-modeling" onClick={closeMenus}>
                     3D Modeling
                   </Link>
 
-                  <Link href="/services/jewelry-rendering" className="block">
+                  <Link href="/services/jewelry-rendering" onClick={closeMenus}>
                     Jewelry Rendering
                   </Link>
+
                 </div>
               )}
             </div>
 
-            <Link href="/about" className="block">
+            <Link href="/about" onClick={closeMenus}>
               About
             </Link>
 
-            <Link href="/portfolio" className="block">
+            <Link href="/portfolio" onClick={closeMenus}>
               Portfolio
             </Link>
 
-            <Link href="/resume" className="block">
+            <Link href="/resume" onClick={closeMenus}>
               Resume
             </Link>
 
-            <Link href="/blog" className="block">
+            <Link href="/blog" onClick={closeMenus}>
               Blog
             </Link>
 
             <Link
               href="/book-appointment"
+              onClick={closeMenus}
               className="flex items-center gap-2 border border-gray-300 px-4 py-2 rounded-lg w-fit"
             >
               <CalendarDays size={18} />
               Book Appointment
             </Link>
+
           </div>
         )}
       </header>

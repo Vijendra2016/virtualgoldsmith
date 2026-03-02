@@ -1,6 +1,7 @@
 import Image from "next/image";
 import CADHeroImageSection from "./HeroImageSection";
 import ShowcaseSection from "../components/ShowcaseSection";
+import CADProcessSection from "./CADProcessSection";
 export default function Home() {
   return (
    
@@ -8,6 +9,7 @@ export default function Home() {
       
       <main className="flex min-h-screen w-full  flex-col items-center justify-between py-2  bg-white dark:bg-black sm:items-start">
        <CADHeroImageSection/>
+      <CADProcessSection/>
        <ShowcaseSection
       cards={[
         {

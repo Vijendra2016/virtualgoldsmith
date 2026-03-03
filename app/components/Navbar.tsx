@@ -6,8 +6,8 @@ import Image from "next/image";
 import { CalendarDays, Menu, X, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
-  const [serviceOpen, setServiceOpen] = useState<boolean>(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [serviceOpen, setServiceOpen] = useState(false);
 
   const closeMenus = () => {
     setMobileOpen(false);
@@ -18,10 +18,10 @@ export default function Navbar() {
     <>
       {/* Announcement */}
       <div className="w-full bg-black text-white text-center text-sm py-2">
-        Crafted digitally. Finished by hand. Made to endure. 
+        Crafted digitally. Finished by hand. Made to endure.
       </div>
 
-      <header className="w-full bg-white sticky top-0 z-50 ">
+      <header className="w-full bg-white sticky top-0 z-50">
 
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
 
@@ -41,66 +41,61 @@ export default function Navbar() {
 
             <Link href="/">Home</Link>
 
-            <div
-              className="relative"
-              onMouseEnter={() => setServiceOpen(true)}
-              onMouseLeave={() => setServiceOpen(false)}
-            >
+            {/* Services */}
+            <div className="relative group">
+
               <button className="flex items-center gap-1">
                 Services <ChevronDown size={16} />
               </button>
 
-{serviceOpen && (
-  <div className="absolute top-10 left-1/2 -translate-x-1/2 bg-white border border-gray-200  shadow-xl w-[320px] p-3">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
 
-    <div className="flex flex-col">
+                <div className="bg-white border border-gray-200 shadow-xl w-[320px] p-3 rounded-xl">
 
-      <Link
-        href="/cad-design-services"
-        className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition group"
-      >
-        <Image
-          src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
-          alt="CAD Design"
-          width={36}
-          height={36}
-        />
+                  <Link
+                    href="/cad-design-services"
+                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition group/item"
+                  >
+                    <Image
+                      src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
+                      alt="CAD Design"
+                      width={36}
+                      height={36}
+                    />
 
-        <span className="font-medium text-gray-800 flex-1">
-          CAD Design
-        </span>
+                    <span className="font-medium text-gray-800 flex-1">
+                      CAD Design
+                    </span>
 
-        <span className="text-gray-400 group-hover:translate-x-1 transition">
-          →
-        </span>
-      </Link>
+                    <span className="text-gray-400 group-hover/item:translate-x-1 transition">
+                      →
+                    </span>
+                  </Link>
 
-      <Link
-        href="/jewelry-drawing-and-illistration"
-        className="flex items-center gap-4 p-3 rounded-xl  transition group"
-      >
-        <Image
-          src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
-          alt="Jewelry Drawing"
-          width={36}
-          height={36}
-        />
+                  <Link
+                    href="/jewelry-drawing-and-illistration"
+                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition group/item"
+                  >
+                    <Image
+                      src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
+                      alt="Jewelry Drawing"
+                      width={36}
+                      height={36}
+                    />
 
-        <span className="font-medium text-gray-800 flex-1">
-          Jewelry Drawing & Illustration
-        </span>
+                    <span className="font-medium text-gray-800 flex-1">
+                      Jewelry Drawing & Illustration
+                    </span>
 
-        <span className="text-gray-400 group-hover:translate-x-1 transition">
-          →
-        </span>
-      </Link>
+                    <span className="text-gray-400 group-hover/item:translate-x-1 transition">
+                      →
+                    </span>
+                  </Link>
 
-    </div>
+                </div>
 
-  </div>
-)}
+              </div>
 
-              
             </div>
 
             <Link href="/about">About</Link>
@@ -119,71 +114,84 @@ export default function Navbar() {
             Book Appointment
           </Link>
 
-          {/* Mobile Button */}
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-black"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
+
         </div>
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="md:hidden border-t bg-white  text-black px-6 py-6 space-y-5 text-lg">
+          <div className="md:hidden border-t bg-white text-black px-6 py-6 space-y-6">
 
-            <Link href="/" onClick={closeMenus} className="block">
+            <Link href="/" onClick={closeMenus} className="block text-lg">
               Home
             </Link>
 
-            {/* Services */}
+            {/* Mobile Services */}
             <div>
+
               <button
                 onClick={() => setServiceOpen(!serviceOpen)}
-                className="flex items-center justify-between w-full"
+                className="flex items-center justify-between w-full text-lg"
               >
                 Services
                 <ChevronDown size={18} />
               </button>
 
               {serviceOpen && (
-                <div className="mt-3 ml-3 space-y-3 text-gray-600">
+                <div className="mt-4 space-y-3">
 
                   <Link
                     href="/cad-design-services"
                     onClick={closeMenus}
-                    className="block"
+                    className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50"
                   >
+                    <Image
+                      src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
+                      alt="CAD Design"
+                      width={30}
+                      height={30}
+                    />
                     CAD Design
                   </Link>
-                    
 
-                     <Link
+                  <Link
                     href="/jewelry-drawing-and-illistration"
                     onClick={closeMenus}
-                    className="block"
+                    className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50"
                   >
-                    jewelry Drawing & Illistration
+                    <Image
+                      src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
+                      alt="Jewelry Drawing"
+                      width={30}
+                      height={30}
+                    />
+                    Jewelry Drawing & Illustration
                   </Link>
-
 
                 </div>
               )}
+
             </div>
 
-            <Link href="/about" onClick={closeMenus} className="block">
+            <Link href="/about" onClick={closeMenus} className="block text-lg">
               About
             </Link>
 
-            <Link href="/portfolio" onClick={closeMenus} className="block">
+            <Link href="/portfolio" onClick={closeMenus} className="block text-lg">
               Portfolio
             </Link>
 
-            <Link href="/resume" onClick={closeMenus} className="block">
+            <Link href="/resume" onClick={closeMenus} className="block text-lg">
               Resume
             </Link>
 
-            <Link href="/blog" onClick={closeMenus} className="block">
+            <Link href="/blog" onClick={closeMenus} className="block text-lg">
               Blog
             </Link>
 

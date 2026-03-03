@@ -16,37 +16,31 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Announcement Bar */}
-      <div className="w-full bg-black text-white">
-        <div className="max-w-7xl mx-auto px-1 py-1 text-center text-lg">
-          Crafted digitally. Finished by hand. Made to endure.
-        </div>
+      {/* Announcement */}
+      <div className="w-full bg-black text-white text-center text-sm py-2">
+        Crafted digitally. Finished by hand. Made to endure.
       </div>
 
-      {/* Navbar */}
-      <header className="w-full bg-white sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <header className="w-full bg-white sticky top-0 z-50 border-b">
+
+        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center" onClick={closeMenus}>
+          <Link href="/" onClick={closeMenus}>
             <Image
               src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/6995b58e5542fc97efa6a1b6_Virtaul%20Gold%20Smith.png"
               alt="Logo"
               width={150}
               height={60}
               priority
-              className="w-auto"
             />
           </Link>
 
           {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center space-x-10 text-lg font-thin text-gray-700">
+          <nav className="hidden md:flex items-center space-x-8 text-lg text-gray-700">
 
-            <Link href="/" onClick={closeMenus}>
-              Home
-            </Link>
+            <Link href="/">Home</Link>
 
-            {/* Services Dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setServiceOpen(true)}
@@ -61,63 +55,32 @@ export default function Navbar() {
 
                   <Link
                     href="/cad-design-services"
-                    onClick={closeMenus}
                     className="block px-4 py-2 hover:bg-gray-100"
                   >
                     CAD Design
-                  </Link>
-
-                  <Link
-                    href="/services/3d-modeling"
-                    onClick={closeMenus}
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    3D Modeling
-                  </Link>
-
-                  <Link
-                    href="/services/jewelry-rendering"
-                    onClick={closeMenus}
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    Jewelry Rendering
                   </Link>
 
                 </div>
               )}
             </div>
 
-            <Link href="/about" onClick={closeMenus}>
-              About
-            </Link>
-
-            <Link href="/portfolio" onClick={closeMenus}>
-              Portfolio
-            </Link>
-
-            <Link href="/resume" onClick={closeMenus}>
-              Resume
-            </Link>
-
-            <Link href="/blog" onClick={closeMenus}>
-              Blog
-            </Link>
+            <Link href="/about">About</Link>
+            <Link href="/portfolio">Portfolio</Link>
+            <Link href="/resume">Resume</Link>
+            <Link href="/blog">Blog</Link>
 
           </nav>
 
-          {/* CTA */}
+          {/* Desktop CTA */}
           <Link
             href="/book-appointment"
-            onClick={closeMenus}
             className="hidden md:flex items-center bg-black text-white gap-2 text-sm font-medium px-4 py-2 rounded-full hover:bg-gray-800"
-          
-          
           >
             <CalendarDays size={18} />
             Book Appointment
           </Link>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Button */}
           <button
             className="md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -128,61 +91,58 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="md:hidden px-6 pb-6 space-y-4 text-gray-700">
+          <div className="md:hidden border-t bg-white px-6 py-6 space-y-5 text-lg">
 
-            <Link href="/" onClick={closeMenus}>
+            <Link href="/" onClick={closeMenus} className="block">
               Home
             </Link>
 
-            {/* Mobile Services */}
+            {/* Services */}
             <div>
               <button
                 onClick={() => setServiceOpen(!serviceOpen)}
-                className="flex items-center gap-2"
+                className="flex items-center justify-between w-full"
               >
-                Services <ChevronDown size={16} />
+                Services
+                <ChevronDown size={18} />
               </button>
 
               {serviceOpen && (
-                <div className="ml-4 mt-2 space-y-2">
+                <div className="mt-3 ml-3 space-y-3 text-gray-600">
 
-                  <Link href="/cad-design-services" onClick={closeMenus}>
+                  <Link
+                    href="/cad-design-services"
+                    onClick={closeMenus}
+                    className="block"
+                  >
                     CAD Design
-                  </Link>
-
-                  <Link href="/services/3d-modeling" onClick={closeMenus}>
-                    3D Modeling
-                  </Link>
-
-                  <Link href="/services/jewelry-rendering" onClick={closeMenus}>
-                    Jewelry Rendering
                   </Link>
 
                 </div>
               )}
             </div>
 
-            <Link href="/about" onClick={closeMenus}>
+            <Link href="/about" onClick={closeMenus} className="block">
               About
             </Link>
 
-            <Link href="/portfolio" onClick={closeMenus}>
+            <Link href="/portfolio" onClick={closeMenus} className="block">
               Portfolio
             </Link>
 
-            <Link href="/resume" onClick={closeMenus}>
+            <Link href="/resume" onClick={closeMenus} className="block">
               Resume
             </Link>
 
-            <Link href="/blog" onClick={closeMenus}>
+            <Link href="/blog" onClick={closeMenus} className="block">
               Blog
             </Link>
 
+            {/* Mobile CTA */}
             <Link
               href="/book-appointment"
               onClick={closeMenus}
-                         className="hidden md:flex items-center bg-black text-white gap-2 text-sm font-medium px-4 py-2 rounded-full hover:bg-gray-800"
-
+              className="flex items-center justify-center bg-black text-white gap-2 text-sm font-medium px-4 py-3 rounded-full mt-4"
             >
               <CalendarDays size={18} />
               Book Appointment

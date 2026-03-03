@@ -16,18 +16,18 @@ export default function FloatingContactButtons() {
 
       {/* CALL */}
       <div
-        className={`flex items-center justify-end rounded-full bg-[#62f6b5] shadow-lg cursor-pointer overflow-hidden transition-all duration-300
+        className={`flex items-center justify-end rounded-full bg-black shadow-lg cursor-pointer overflow-hidden transition-all duration-300
         ${openItem === 'call' ? 'w-full' : 'w-10 ml-auto'}`}
         onClick={() => toggle('call')}
       >
         <div className="w-10 h-10 flex items-center justify-center shrink-0">
-          <Phone className="text-black  w-5 h-5" />
+          <Phone className="text-white  w-5 h-5" />
         </div>
 
         {openItem === 'call' && (
          <Link
   href="tel:+12487709617"
-  className="text-black font-light pr-5 whitespace-nowrap"
+  className="text-white font-light pr-5 whitespace-nowrap"
 >
   Connect Over Phone
 </Link>
@@ -36,19 +36,19 @@ export default function FloatingContactButtons() {
 
       {/* LOCATION */}
       <div
-        className={`flex items-center justify-end rounded-full bg-[#62f6b5] shadow-lg cursor-pointer overflow-hidden transition-all duration-300
+        className={`flex items-center justify-end rounded-full bg-black shadow-lg cursor-pointer overflow-hidden transition-all duration-300
         ${openItem === 'location' ? 'w-full' : 'w-10 ml-auto'}`}
         onClick={() => toggle('location')}
       >
         <div className="w-10 h-10 flex items-center justify-center shrink-0">
-          < Video  className="text-black w-5 h-5" />
+          < Video  className="text-white w-5 h-5" />
         </div>
 
         {openItem === 'location' && (
           <Link
             href="https://thegoldsmithsbench.bloom.io/schedule"
             target="_blank"
-            className="text-black font-light pr-5 whitespace-nowrap"
+            className="text-white font-light pr-5 whitespace-nowrap"
           >
             Book a Discovery Call
           </Link>

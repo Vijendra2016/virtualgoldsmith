@@ -2,6 +2,14 @@ import Image from "next/image";
 import CADHeroImageSection from "./HeroImageSection";
 import ShowcaseSection from "../components/ShowcaseSection";
 import CADProcessSection from "./CADProcessSection";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Jewelry CAD Design Services | Virtual Goldsmith",
+  description: "Professional jewelry CAD design services for jewelers and brands. Virtual Goldsmith creates accurate, production-ready CAD files for rings, pendants, and custom jewelry designs.",
+};
+
+
 export default function Home() {
   return (
    

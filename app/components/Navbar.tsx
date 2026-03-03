@@ -50,26 +50,57 @@ export default function Navbar() {
                 Services <ChevronDown size={16} />
               </button>
 
-              {serviceOpen && (
-                <div className="absolute top-8 left-0 bg-white border rounded-lg shadow-lg w-52 py-2">
+{serviceOpen && (
+  <div className="absolute top-10 left-1/2 -translate-x-1/2 bg-white border border-gray-200  shadow-xl w-[320px] p-3">
 
-                  <Link
-                    href="/cad-design-services"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    CAD Design
-                  </Link>
+    <div className="flex flex-col">
 
+      <Link
+        href="/cad-design-services"
+        className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition group"
+      >
+        <Image
+          src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
+          alt="CAD Design"
+          width={36}
+          height={36}
+        />
 
-                   <Link
-                    href="/jewelry-drawing-and-illistration"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    jewelry Drawing & Illistration
-                  </Link>
+        <span className="font-medium text-gray-800 flex-1">
+          CAD Design
+        </span>
 
-                </div>
-              )}
+        <span className="text-gray-400 group-hover:translate-x-1 transition">
+          →
+        </span>
+      </Link>
+
+      <Link
+        href="/jewelry-drawing-and-illistration"
+        className="flex items-center gap-4 p-3 rounded-xl  transition group"
+      >
+        <Image
+          src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
+          alt="Jewelry Drawing"
+          width={36}
+          height={36}
+        />
+
+        <span className="font-medium text-gray-800 flex-1">
+          Jewelry Drawing & Illustration
+        </span>
+
+        <span className="text-gray-400 group-hover:translate-x-1 transition">
+          →
+        </span>
+      </Link>
+
+    </div>
+
+  </div>
+)}
+
+              
             </div>
 
             <Link href="/about">About</Link>

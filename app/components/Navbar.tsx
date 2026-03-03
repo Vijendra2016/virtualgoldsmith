@@ -18,7 +18,7 @@ export default function Navbar() {
     <>
       {/* Announcement */}
       <div className="w-full bg-black text-white text-center text-sm py-2">
-        Crafted digitally. Finished by hand. Made to endure.
+        Crafted digitally. Finished by hand. Made to endure. 
       </div>
 
       <header className="w-full bg-white sticky top-0 z-50 ">

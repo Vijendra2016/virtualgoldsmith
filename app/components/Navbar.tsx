@@ -21,7 +21,7 @@ export default function Navbar() {
         Crafted digitally. Finished by hand. Made to endure.
       </div>
 
-      <header className="w-full bg-white sticky top-0 z-50 border-b">
+      <header className="w-full bg-white sticky top-0 z-50 ">
 
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
 

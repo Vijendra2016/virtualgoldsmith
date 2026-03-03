@@ -50,7 +50,8 @@ export default function FloatingContactButtons() {
             target="_blank"
             className="text-white font-light pr-5 whitespace-nowrap"
           >
-            Book a Discovery Call
+                       Book Appointment
+
           </Link>
         )}
         

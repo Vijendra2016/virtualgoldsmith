@@ -18,7 +18,7 @@ export default function Navbar() {
     <>
       {/* Announcement Bar */}
       <div className="w-full bg-[#c5d8de] text-black">
-        <div className="max-w-7xl mx-auto px-1 py-2 text-center text-lg">
+        <div className="max-w-7xl mx-auto px-1 py-1 text-center text-lg">
           Crafted digitally. Finished by hand. Made to endure.
         </div>
       </div>

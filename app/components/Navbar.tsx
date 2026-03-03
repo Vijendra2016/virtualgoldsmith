@@ -60,6 +60,14 @@ export default function Navbar() {
                     CAD Design
                   </Link>
 
+
+                   <Link
+                    href="/jewelry-drawing-and-illistration"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    jewelry Drawing & Illistration
+                  </Link>
+
                 </div>
               )}
             </div>
@@ -117,6 +125,16 @@ export default function Navbar() {
                   >
                     CAD Design
                   </Link>
+                    
+
+                     <Link
+                    href="/jewelry-drawing-and-illistration"
+                    onClick={closeMenus}
+                    className="block"
+                  >
+                    jewelry Drawing & Illistration
+                  </Link>
+
 
                 </div>
               )}

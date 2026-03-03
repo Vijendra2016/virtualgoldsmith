@@ -91,7 +91,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="md:hidden border-t bg-white px-6 py-6 space-y-5 text-lg">
+          <div className="md:hidden border-t bg-white  text-black px-6 py-6 space-y-5 text-lg">
 
             <Link href="/" onClick={closeMenus} className="block">
               Home

@@ -50,7 +50,7 @@ export default function AboutPage() {
             Crafted Digitally. Finished by Hand.
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-            Virtual Goldsmith was founded on a simple belief — that the art of fine jewelry deserves the precision of modern technology. With over 40 years of hands-on goldsmithing experience behind every design decision, we bridge the gap between traditional craftsmanship and digital innovation.
+            Virtual Goldsmith was created by Todd Michael as a practical tool for independent jewelers, emerging jewelry designers, and gemstone cutters looking for an edge. It provides the advantage of additional support without the burden of added labor costs.
           </p>
         </div>
       </section>
@@ -72,13 +72,10 @@ export default function AboutPage() {
               40+ Years at the Bench
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              Our founder began as a traditional goldsmith, spending decades perfecting the craft at the bench — cutting, setting, polishing, and building jewelry from raw metal and stone. That foundation of physical mastery is what makes our digital designs different.
+              Drawing on decades of experience as a master jeweler, Todd combines traditional skills such as jewelry design, counter sketching, and manufacturing with modern technologies including in-house CAD design, 3D scanning, and jewelry illustration.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              When CAD technology entered the jewelry world, we embraced it not as a replacement for craftsmanship, but as an extension of it. Every 3D model we build carries the intuition and foresight of someone who has physically made thousands of pieces.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              Today, Virtual Goldsmith serves independent jewelers, retail brands, and private clients around the world — delivering production-ready digital designs with the confidence that comes from deep technical knowledge.
+              The result is a resource built to help jewelry professionals work smarter, design with greater precision, and bring ideas to life more efficiently.
             </p>
           </div>
         </div>

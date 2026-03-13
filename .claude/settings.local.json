@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.davidyurman.com)",
+      "WebFetch(domain:www.tiffany.com)",
+      "WebFetch(domain:www.mejuri.com)"
+    ]
+  }
+}

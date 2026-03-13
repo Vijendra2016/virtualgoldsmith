@@ -81,7 +81,7 @@ export default function AboutPage() {
               40+ Years at the Bench
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              Drawing on decades of experience as a master jeweler, Todd combines traditional skills such as jewelry design, counter sketching, and manufacturing with modern technologies including in-house CAD design, 3D scanning, and jewelry illustration.
+              Drawing on decades of experience as a master jeweler, Todd combines traditional skills such as jewelry design, counter sketching, and manufacturing with modern technologies including in-house CAD design, 3D rendering, and jewelry illustration.
             </p>
             <p className="text-gray-700 leading-relaxed">
               The result is a resource built to help jewelry professionals work smarter, design with greater precision, and bring ideas to life more efficiently.

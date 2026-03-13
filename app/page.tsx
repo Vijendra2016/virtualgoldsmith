@@ -116,7 +116,7 @@ export default function HomePage() {
               Decades of craft.<br />Modern precision.
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Virtual Goldsmith was created by Todd Michael as a practical tool for independent jewelers, emerging jewelry designers, and gemstone cutters looking for an edge. Drawing on decades of experience as a master jeweler, Todd combines traditional skills with modern technologies including in-house CAD design, 3D scanning, and jewelry illustration.
+              Virtual Goldsmith was created by Todd Michael as a practical tool for independent jewelers, emerging jewelry designers, and gemstone cutters looking for an edge. Drawing on decades of experience as a master jeweler, Todd combines traditional skills with modern technologies including in-house CAD design, 3D rendering, and jewelry illustration.
             </p>
             <p className="text-gray-600 leading-relaxed mb-10">
               The result is a resource built to help jewelry professionals work smarter, design with greater precision, and bring ideas to life more efficiently.
@@ -289,7 +289,7 @@ export default function HomePage() {
               {
                 number: "03",
                 title: "Traditional Meets Digital",
-                desc: "Counter sketching, jewelry illustration, CAD modeling, and 3D scanning — all under one roof, from one master jeweler.",
+                desc: "Counter sketching, jewelry illustration, CAD modeling, and 3D rendering — all under one roof, from one master jeweler.",
               },
             ].map((item) => (
               <div key={item.number} className="why-card bg-white rounded-2xl p-8 border border-gray-100">

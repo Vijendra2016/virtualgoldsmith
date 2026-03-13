@@ -4,18 +4,53 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CalendarDays, Menu, X, ChevronDown } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
   const [desktopServiceOpen, setDesktopServiceOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const desktopDropdownRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const announcementRef = useRef<HTMLDivElement>(null);
 
   const closeMenus = () => {
     setMobileOpen(false);
     setServiceOpen(false);
     setDesktopServiceOpen(false);
   };
+
+  // Entrance animation
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(announcementRef.current, {
+        y: -40,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power3.out",
+        delay: 0.1,
+      });
+      gsap.from(navRef.current, {
+        y: -30,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power3.out",
+        delay: 0.25,
+      });
+    });
+    return () => ctx.revert();
+  }, []);
+
+  // Scroll shadow effect
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close desktop dropdown when clicking outside
   useEffect(() => {
@@ -34,11 +69,14 @@ export default function Navbar() {
   return (
     <>
       {/* Announcement */}
-      <div className="w-full bg-black text-white text-center text-sm py-2">
+      <div ref={announcementRef} className="w-full bg-black text-white text-center text-sm py-2">
         Crafted digitally. Finished by hand. Made to endure.
       </div>
 
-      <header className="w-full bg-white sticky top-0 z-50">
+      <header
+        ref={navRef}
+        className={`w-full bg-white sticky top-0 z-50 transition-shadow duration-300 ${scrolled ? "shadow-md" : ""}`}
+      >
 
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
 

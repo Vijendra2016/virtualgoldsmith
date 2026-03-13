@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { CalendarDays, ArrowRight } from "lucide-react";
+import HomeAnimations from "./components/HomeAnimations";
 
 export const metadata: Metadata = {
   title: "Virtual Goldsmith | CAD Design, Jewelry Illustration & Digital Inventory",
@@ -37,34 +38,6 @@ const services = [
   },
 ];
 
-const portfolioImages = [
-  {
-    src: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58798bcce5ba0379b9510_ringgold.jpeg",
-    alt: "Gold ring CAD design",
-    span: "md:col-span-2",
-  },
-  {
-    src: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a678462104709c7dfa52f0_cadringdesign4.jpeg",
-    alt: "Custom CAD ring design",
-    span: "",
-  },
-  {
-    src: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a6783f3ecb245ade44d99e_cadringdesign2.jpeg",
-    alt: "Jewelry CAD model",
-    span: "",
-  },
-  {
-    src: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58d5f081a4da94ec4e4c6_pexels-cottonbro-9430438.jpg",
-    alt: "Jewelry design process",
-    span: "",
-  },
-  {
-    src: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58798bcce5ba0379b9510_ringgold.jpeg",
-    alt: "Gold ring render",
-    span: "md:col-span-2",
-  },
-];
-
 const stats = [
   { number: "40+", label: "Years at the Bench" },
   { number: "500+", label: "Projects Completed" },
@@ -75,6 +48,7 @@ const stats = [
 export default function HomePage() {
   return (
     <div className="bg-white">
+      <HomeAnimations />
 
       {/* ─── HERO ─── */}
       <section className="relative h-screen w-full overflow-hidden">
@@ -86,21 +60,21 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
 
         <div className="relative z-10 flex h-full flex-col justify-end pb-16 px-6 md:px-14 max-w-5xl">
-          <p className="text-white/60 text-xs tracking-[0.4em] uppercase mb-5">
+          <p className="hero-label text-white/60 text-xs tracking-[0.4em] uppercase mb-5">
             Virtual Goldsmith by Todd Michael
           </p>
-          <h1 className="text-white text-4xl md:text-6xl font-light leading-tight mb-6">
+          <h1 className="hero-heading text-white text-4xl md:text-6xl font-light leading-tight mb-6">
             Jewelry design tools
             <br />
             built for professionals.
           </h1>
-          <p className="text-white/75 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
+          <p className="hero-sub text-white/75 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
             CAD design, jewelry illustration, and virtual inventory — crafted digitally, finished by hand, made to endure.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-white text-black px-8 py-3.5 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors duration-300"
+              className="hero-cta inline-flex items-center gap-2 bg-white text-black px-8 py-3.5 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors duration-300"
             >
               Get in Touch
             </Link>
@@ -108,7 +82,7 @@ export default function HomePage() {
               href={BOOK_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-white text-white px-8 py-3.5 rounded-full text-sm hover:bg-white hover:text-black transition-colors duration-300"
+              className="hero-cta inline-flex items-center gap-2 border border-white text-white px-8 py-3.5 rounded-full text-sm hover:bg-white hover:text-black transition-colors duration-300"
             >
               <CalendarDays size={16} />
               Book Appointment
@@ -116,14 +90,13 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-6 right-8 text-white/40 text-xs tracking-widest rotate-90 hidden md:block">
+        <div className="hero-scroll absolute bottom-6 right-8 text-white/40 text-xs tracking-widest rotate-90 hidden md:block">
           SCROLL
         </div>
       </section>
 
       {/* ─── TAGLINE STRIP ─── */}
-      <section className="bg-black text-white py-6 px-6">
+      <section className="tagline-strip bg-black text-white py-6 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <p className="text-sm tracking-[0.3em] uppercase text-white/60">
             Serving independent jewelers · emerging designers · gemstone cutters
@@ -137,9 +110,9 @@ export default function HomePage() {
       {/* ─── INTRO ─── */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="text-xs tracking-[0.4em] uppercase text-gray-400 mb-4">About Virtual Goldsmith</p>
-            <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 leading-tight mb-6">
+          <div className="intro-text">
+            <p className="section-heading text-xs tracking-[0.4em] uppercase text-gray-400 mb-4">About Virtual Goldsmith</p>
+            <h2 className="section-heading text-4xl md:text-5xl font-semibold text-gray-900 leading-tight mb-6">
               Decades of craft.<br />Modern precision.
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
@@ -155,7 +128,7 @@ export default function HomePage() {
               Learn More About Todd <ArrowRight size={16} />
             </Link>
           </div>
-          <div className="relative">
+          <div className="intro-image relative">
             <Image
               src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58798bcce5ba0379b9510_ringgold.jpeg"
               alt="Goldsmith at work"
@@ -172,12 +145,12 @@ export default function HomePage() {
       </section>
 
       {/* ─── SERVICES ─── */}
-      <section className="py-24 bg-gray-50 px-6">
+      <section className="services-section py-24 bg-gray-50 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="mb-14">
-            <p className="text-xs tracking-[0.4em] uppercase text-gray-400 mb-3">What We Do</p>
+            <p className="section-heading text-xs tracking-[0.4em] uppercase text-gray-400 mb-3">What We Do</p>
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <h2 className="text-4xl md:text-5xl font-semibold text-gray-900">Our Services</h2>
+              <h2 className="section-heading text-4xl md:text-5xl font-semibold text-gray-900">Our Services</h2>
               <Link
                 href="/contact"
                 className="text-sm font-medium text-black border-b border-black pb-1 self-start md:self-auto hover:opacity-60 transition"
@@ -192,7 +165,7 @@ export default function HomePage() {
               <Link
                 key={service.title}
                 href={service.href}
-                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300"
+                className="service-card group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="relative h-56 w-full overflow-hidden">
                   <Image
@@ -219,11 +192,11 @@ export default function HomePage() {
       </section>
 
       {/* ─── STATS ─── */}
-      <section className="py-20 bg-black text-white px-6">
+      <section className="stats-section py-20 bg-black text-white px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
           {stats.map((s) => (
-            <div key={s.label}>
-              <p className="text-5xl md:text-6xl font-semibold mb-2">{s.number}</p>
+            <div key={s.label} className="stat-item">
+              <p className="stat-number text-5xl md:text-6xl font-semibold mb-2">{s.number}</p>
               <p className="text-white/50 text-xs tracking-widest uppercase">{s.label}</p>
             </div>
           ))}
@@ -231,12 +204,12 @@ export default function HomePage() {
       </section>
 
       {/* ─── PORTFOLIO ─── */}
-      <section className="py-24 px-6">
+      <section className="portfolio-section py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <p className="text-xs tracking-[0.4em] uppercase text-gray-400 mb-3">Our Work</p>
-              <h2 className="text-4xl md:text-5xl font-semibold text-gray-900">Featured Projects</h2>
+              <p className="section-heading text-xs tracking-[0.4em] uppercase text-gray-400 mb-3">Our Work</p>
+              <h2 className="section-heading text-4xl md:text-5xl font-semibold text-gray-900">Featured Projects</h2>
             </div>
             <Link
               href="/portfolio"
@@ -247,8 +220,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-4">
-            {/* Row 1: large + small */}
-            <div className="md:col-span-2 relative h-72 md:h-96 overflow-hidden rounded-2xl">
+            <div className="portfolio-img md:col-span-2 relative h-72 md:h-96 overflow-hidden rounded-2xl">
               <Image
                 src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a66f8ad84af3158804207a_CAD%20JEWELLERY%20SERVICES%20.jpeg"
                 alt="CAD Jewellery Services"
@@ -256,7 +228,7 @@ export default function HomePage() {
                 className="object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
-            <div className="relative h-72 md:h-96 overflow-hidden rounded-2xl">
+            <div className="portfolio-img relative h-72 md:h-96 overflow-hidden rounded-2xl">
               <Image
                 src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a678462104709c7dfa52f0_cadringdesign4.jpeg"
                 alt="Custom CAD ring"
@@ -264,9 +236,7 @@ export default function HomePage() {
                 className="object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
-
-            {/* Row 2: three equal */}
-            <div className="relative h-60 overflow-hidden rounded-2xl">
+            <div className="portfolio-img relative h-60 overflow-hidden rounded-2xl">
               <Image
                 src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a6783f3ecb245ade44d99e_cadringdesign2.jpeg"
                 alt="Jewelry CAD model"
@@ -274,7 +244,7 @@ export default function HomePage() {
                 className="object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
-            <div className="relative h-60 overflow-hidden rounded-2xl">
+            <div className="portfolio-img relative h-60 overflow-hidden rounded-2xl">
               <Image
                 src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58798bcce5ba0379b9510_ringgold.jpeg"
                 alt="Gold ring design"
@@ -282,7 +252,7 @@ export default function HomePage() {
                 className="object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
-            <div className="relative h-60 overflow-hidden rounded-2xl">
+            <div className="portfolio-img relative h-60 overflow-hidden rounded-2xl">
               <Image
                 src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58d5f081a4da94ec4e4c6_pexels-cottonbro-9430438.jpg"
                 alt="Jewelry design studio"
@@ -295,11 +265,11 @@ export default function HomePage() {
       </section>
 
       {/* ─── WHY US ─── */}
-      <section className="py-24 bg-gray-50 px-6">
+      <section className="why-section py-24 bg-gray-50 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-xs tracking-[0.4em] uppercase text-gray-400 mb-3">Why Virtual Goldsmith</p>
-            <h2 className="text-4xl md:text-5xl font-semibold text-gray-900">
+            <p className="section-heading text-xs tracking-[0.4em] uppercase text-gray-400 mb-3">Why Virtual Goldsmith</p>
+            <h2 className="section-heading text-4xl md:text-5xl font-semibold text-gray-900">
               The advantage is built in
             </h2>
           </div>
@@ -322,7 +292,7 @@ export default function HomePage() {
                 desc: "Counter sketching, jewelry illustration, CAD modeling, and 3D scanning — all under one roof, from one master jeweler.",
               },
             ].map((item) => (
-              <div key={item.number} className="bg-white rounded-2xl p-8 border border-gray-100">
+              <div key={item.number} className="why-card bg-white rounded-2xl p-8 border border-gray-100">
                 <p className="text-5xl font-semibold text-gray-100 mb-4">{item.number}</p>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
@@ -332,12 +302,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── PROCESS STRIP ─── */}
-      <section className="py-20 px-6">
+      {/* ─── PROCESS ─── */}
+      <section className="process-section py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-xs tracking-[0.4em] uppercase text-gray-400 mb-3">How It Works</p>
-            <h2 className="text-4xl font-semibold text-gray-900">Simple. Collaborative. Precise.</h2>
+            <p className="section-heading text-xs tracking-[0.4em] uppercase text-gray-400 mb-3">How It Works</p>
+            <h2 className="section-heading text-4xl font-semibold text-gray-900">Simple. Collaborative. Precise.</h2>
           </div>
           <div className="grid md:grid-cols-4 gap-6">
             {[
@@ -346,7 +316,7 @@ export default function HomePage() {
               { step: "03", title: "Design & Revise", desc: "Receive your CAD, illustration, or renders with revision rounds until it's perfect." },
               { step: "04", title: "Production Ready", desc: "Get final files ready for casting, printing, or your manufacturing workflow." },
             ].map((item) => (
-              <div key={item.step} className="text-center px-4">
+              <div key={item.step} className="process-step text-center px-4">
                 <div className="w-14 h-14 rounded-full border-2 border-black flex items-center justify-center mx-auto mb-6">
                   <span className="text-sm font-semibold text-black">{item.step}</span>
                 </div>
@@ -366,7 +336,7 @@ export default function HomePage() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/70" />
-        <div className="relative z-10 max-w-3xl mx-auto text-center px-6">
+        <div className="final-cta relative z-10 max-w-3xl mx-auto text-center px-6">
           <p className="text-white/60 text-xs tracking-[0.4em] uppercase mb-5">Ready to Start?</p>
           <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6">
             Let's bring your design to life.

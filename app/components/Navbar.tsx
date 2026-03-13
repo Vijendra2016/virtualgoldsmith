@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CalendarDays, Menu, X, ChevronDown } from "lucide-react";
@@ -8,11 +8,28 @@ import { CalendarDays, Menu, X, ChevronDown } from "lucide-react";
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
+  const [desktopServiceOpen, setDesktopServiceOpen] = useState(false);
+  const desktopDropdownRef = useRef<HTMLDivElement>(null);
 
   const closeMenus = () => {
     setMobileOpen(false);
     setServiceOpen(false);
+    setDesktopServiceOpen(false);
   };
+
+  // Close desktop dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        desktopDropdownRef.current &&
+        !desktopDropdownRef.current.contains(e.target as Node)
+      ) {
+        setDesktopServiceOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <>
@@ -36,86 +53,72 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center space-x-8 text-lg text-gray-700">
+          {/* Desktop Menu — lg and up */}
+          <nav className="hidden lg:flex items-center space-x-8 text-lg text-gray-700">
 
             <Link href="/">Home</Link>
 
-            {/* Services */}
-            <div className="relative group">
-
-              <button className="flex items-center gap-1">
-                Services <ChevronDown size={16} />
+            {/* Services — click-based for touch compatibility */}
+            <div className="relative" ref={desktopDropdownRef}>
+              <button
+                className="flex items-center gap-1"
+                onClick={() => setDesktopServiceOpen(!desktopServiceOpen)}
+              >
+                Services <ChevronDown size={16} className={`transition-transform ${desktopServiceOpen ? "rotate-180" : ""}`} />
               </button>
 
-              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+              {desktopServiceOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4">
+                  <div className="bg-white border border-gray-200 shadow-xl w-[320px] p-3 rounded-xl">
 
-                <div className="bg-white border border-gray-200 shadow-xl w-[320px] p-3 rounded-xl">
+                    <Link
+                      href="/cad-design-services"
+                      onClick={closeMenus}
+                      className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition group/item"
+                    >
+                      <Image
+                        src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
+                        alt="CAD Design"
+                        width={36}
+                        height={36}
+                      />
+                      <span className="font-medium text-gray-800 flex-1">CAD Design</span>
+                      <span className="text-gray-400 group-hover/item:translate-x-1 transition">→</span>
+                    </Link>
 
-                  <Link
-                    href="/cad-design-services"
-                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition group/item"
-                  >
-                    <Image
-                      src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
-                      alt="CAD Design"
-                      width={36}
-                      height={36}
-                    />
+                    <Link
+                      href="/jewelry-drawing-and-illistration"
+                      onClick={closeMenus}
+                      className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition group/item"
+                    >
+                      <Image
+                        src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
+                        alt="Jewelry Drawing"
+                        width={36}
+                        height={36}
+                      />
+                      <span className="font-medium text-gray-800 flex-1">Jewelry Drawing & Illustration</span>
+                      <span className="text-gray-400 group-hover/item:translate-x-1 transition">→</span>
+                    </Link>
 
-                    <span className="font-medium text-gray-800 flex-1">
-                      CAD Design
-                    </span>
+                    <Link
+                      href="/virtual-inventory"
+                      onClick={closeMenus}
+                      className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition group/item"
+                    >
+                      <Image
+                        src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
+                        alt="Virtual Inventory"
+                        width={36}
+                        height={36}
+                      />
+                      <span className="font-medium text-gray-800 flex-1">Virtual Inventory</span>
+                      <span className="text-gray-400 group-hover/item:translate-x-1 transition">→</span>
+                    </Link>
 
-                    <span className="text-gray-400 group-hover/item:translate-x-1 transition">
-                      →
-                    </span>
-                  </Link>
-
-                  <Link
-                    href="/jewelry-drawing-and-illistration"
-                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition group/item"
-                  >
-                    <Image
-                      src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
-                      alt="Jewelry Drawing"
-                      width={36}
-                      height={36}
-                    />
-
-                    <span className="font-medium text-gray-800 flex-1">
-                      Jewelry Drawing & Illustration
-                    </span>
-
-                    <span className="text-gray-400 group-hover/item:translate-x-1 transition">
-                      →
-                    </span>
-                  </Link>
-
-                  <Link
-                    href="/virtual-inventory"
-                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition group/item"
-                  >
-                    <Image
-                      src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
-                      alt="Virtual Inventory"
-                      width={36}
-                      height={36}
-                    />
-
-                    <span className="font-medium text-gray-800 flex-1">
-                      Virtual Inventory
-                    </span>
-
-                    <span className="text-gray-400 group-hover/item:translate-x-1 transition">
-                      →
-                    </span>
-                  </Link>
-
+                  </div>
                 </div>
-
-              </div>
-
+              )}
             </div>
 
             <Link href="/about">About</Link>
@@ -128,15 +131,15 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <Link
             href="https://thegoldsmithsbench.bloom.io/schedule"
-            className="hidden md:flex items-center bg-black text-white gap-2 text-sm font-medium px-4 py-2 rounded-full hover:bg-gray-800"
+            className="hidden lg:flex items-center bg-black text-white gap-2 text-sm font-medium px-4 py-2 rounded-full hover:bg-gray-800"
           >
             <CalendarDays size={18} />
             Book Appointment
           </Link>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile/Tablet Menu Button */}
           <button
-            className="md:hidden text-black"
+            className="lg:hidden text-black"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X size={26} /> : <Menu size={26} />}
@@ -144,9 +147,9 @@ export default function Navbar() {
 
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile/Tablet Menu */}
         {mobileOpen && (
-          <div className="md:hidden border-t bg-white text-black px-6 py-6 space-y-6">
+          <div className="lg:hidden border-t bg-white text-black px-6 py-6 space-y-6">
 
             <Link href="/" onClick={closeMenus} className="block text-lg">
               Home
@@ -154,13 +157,12 @@ export default function Navbar() {
 
             {/* Mobile Services */}
             <div>
-
               <button
                 onClick={() => setServiceOpen(!serviceOpen)}
                 className="flex items-center justify-between w-full text-lg"
               >
                 Services
-                <ChevronDown size={18} />
+                <ChevronDown size={18} className={`transition-transform ${serviceOpen ? "rotate-180" : ""}`} />
               </button>
 
               {serviceOpen && (
@@ -210,7 +212,6 @@ export default function Navbar() {
 
                 </div>
               )}
-
             </div>
 
             <Link href="/about" onClick={closeMenus} className="block text-lg">

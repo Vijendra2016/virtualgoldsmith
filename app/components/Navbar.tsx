@@ -161,7 +161,6 @@ export default function Navbar() {
 
             <Link href="/about">About</Link>
             <Link href="/portfolio">Portfolio</Link>
-            <Link href="/resume">Resume</Link>
             <Link href="/blog">Blog</Link>
             <Link href="/contact">Contact</Link>
 
@@ -259,10 +258,6 @@ export default function Navbar() {
 
             <Link href="/portfolio" onClick={closeMenus} className="block text-lg">
               Portfolio
-            </Link>
-
-            <Link href="/resume" onClick={closeMenus} className="block text-lg">
-              Resume
             </Link>
 
             <Link href="/blog" onClick={closeMenus} className="block text-lg">

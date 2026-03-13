@@ -125,6 +125,7 @@ export default function Navbar() {
             <Link href="/portfolio">Portfolio</Link>
             <Link href="/resume">Resume</Link>
             <Link href="/blog">Blog</Link>
+            <Link href="/contact">Contact</Link>
 
           </nav>
 
@@ -228,6 +229,10 @@ export default function Navbar() {
 
             <Link href="/blog" onClick={closeMenus} className="block text-lg">
               Blog
+            </Link>
+
+            <Link href="/contact" onClick={closeMenus} className="block text-lg">
+              Contact
             </Link>
 
             {/* Mobile CTA */}

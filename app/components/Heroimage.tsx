@@ -34,7 +34,7 @@ Crafted digitally. Finished by hand. Made to endure.         </h1>
           </Link>
 
           <Link
-            href="https://calendly.com/commercetasker/discovery-call"
+            href="https://thegoldsmithsbench.bloom.io/schedule"
             className="inline-block mt-10 rounded-full border border-white 
                        px-8 py-3 text-white text-sm 
                        hover:bg-white hover:text-black 

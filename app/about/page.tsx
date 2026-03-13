@@ -31,7 +31,7 @@ export default function AboutPage() {
               Contact
             </Link>
             <Link
-              href="https://calendly.com/commercetasker/discovery-call"
+              href="https://thegoldsmithsbench.bloom.io/schedule"
               className="inline-block mt-10 ml-4 rounded-full border border-white px-8 py-3 text-white text-sm hover:bg-white hover:text-black transition-colors duration-300"
             >
               Book A Call
@@ -146,7 +146,7 @@ export default function AboutPage() {
               Contact Us
             </Link>
             <Link
-              href="https://calendly.com/commercetasker/discovery-call"
+              href="https://thegoldsmithsbench.bloom.io/schedule"
               className="rounded-full bg-white text-black px-8 py-3 text-sm hover:bg-gray-200 transition-colors duration-300"
             >
               Book A Call

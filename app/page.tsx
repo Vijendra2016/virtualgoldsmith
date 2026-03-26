@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Virtual Goldsmith by Todd Michael — professional CAD design, jewelry illustration, and virtual inventory services for independent jewelers, designers, and gemstone cutters.",
 };
 
-const BOOK_URL = "https://thegoldsmithsbench.bloom.io/schedule";
+const BOOK_URL = "https://virtualgoldsmith.bloom.io/get-started-11";
 
 const services = [
   {

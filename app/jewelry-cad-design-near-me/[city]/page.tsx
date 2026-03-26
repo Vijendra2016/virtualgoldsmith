@@ -5,8 +5,9 @@ import { notFound } from "next/navigation";
 import { CalendarDays, CheckCircle, ArrowRight, MapPin, Mail, Phone } from "lucide-react";
 import ServiceAnimations from "../../components/ServiceAnimations";
 import { cities, getCityBySlug, getAllCitySlugs } from "../cities";
+import CadInquiryForm from "../components/CadInquiryForm";
 
-const BOOKING_URL = "https://thegoldsmithsbench.bloom.io/schedule";
+const BOOKING_URL = "https://virtualgoldsmith.bloom.io/get-started-11";
 const HERO_IMAGE =
   "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58c897d8a8a879d5f45dd_pexels-janakukebal-30541169.jpg";
 const BASE_URL = "https://virtualgoldsmith.com";
@@ -503,140 +504,10 @@ export default async function CityCADPage({
               Todd personally reviews every inquiry and responds within 1 business day.
             </p>
 
-            <form
-              action="https://formsubmit.co/todd@virtualgoldsmith.com"
-              method="POST"
-              className="space-y-5"
-            >
-              <input type="hidden" name="_captcha" value="false" />
-              <input
-                type="hidden"
-                name="_next"
-                value={`${BASE_URL}/contact?sent=true`}
-              />
-              <input
-                type="hidden"
-                name="_subject"
-                value={`New CAD Quote Request — ${cityData.displayName}`}
-              />
-              <input
-                type="hidden"
-                name="location"
-                value={cityData.displayName}
-              />
-              <input type="hidden" name="source_page" value={`/jewelry-cad-design-near-me/${cityData.slug}`} />
-
-              <div className="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    First Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="first_name"
-                    required
-                    placeholder="First name"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Last Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="last_name"
-                    required
-                    placeholder="Last name"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="you@example.com"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="(555) 000-0000"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  I Am a...
-                </label>
-                <select
-                  name="client_type"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition"
-                >
-                  <option value="">Select your role...</option>
-                  <option value="Independent Jeweler">Independent Jeweler</option>
-                  <option value="Jewelry Designer">Jewelry Designer</option>
-                  <option value="Jewelry Manufacturer">Jewelry Manufacturer / Casting House</option>
-                  <option value="Retail Jewelry Store">Retail Jewelry Store</option>
-                  <option value="Private Client">Private Client (Custom Commission)</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Service Needed
-                </label>
-                <select
-                  name="service"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition"
-                >
-                  <option value="">Select a service...</option>
-                  <option value="CAD Design">Jewelry CAD Design</option>
-                  <option value="Jewelry Drawing & Illustration">Jewelry Drawing & Illustration</option>
-                  <option value="Virtual Inventory">Virtual Inventory / 3D Renders</option>
-                  <option value="Multiple Services">Multiple Services</option>
-                  <option value="Not Sure">Not Sure — Need Guidance</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Project Description <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  name="message"
-                  required
-                  rows={5}
-                  placeholder={`Describe your project — piece type, style, stone sizes, any references, and your timeline. The more detail you share, the faster Todd can respond with an accurate quote.`}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-black text-white py-4 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors duration-300 flex items-center justify-center gap-2"
-              >
-                Send My Project Details <ArrowRight size={16} />
-              </button>
-
-              <p className="text-center text-xs text-gray-400 mt-3">
-                No spam. No commitment. Todd personally reviews every inquiry.
-              </p>
-            </form>
+            <CadInquiryForm
+              cityDisplayName={cityData.displayName}
+              citySlug={cityData.slug}
+            />
           </div>
         </div>
       </section>

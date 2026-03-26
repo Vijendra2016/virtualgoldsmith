@@ -46,7 +46,7 @@ export default function FloatingContactButtons() {
 
         {openItem === 'location' && (
           <Link
-            href="https://thegoldsmithsbench.bloom.io/schedule"
+            href="https://virtualgoldsmith.bloom.io/get-started-11"
             target="_blank"
             className="text-white font-light pr-5 whitespace-nowrap"
           >

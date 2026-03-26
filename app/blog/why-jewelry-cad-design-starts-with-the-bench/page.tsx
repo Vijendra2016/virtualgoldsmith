@@ -157,7 +157,7 @@ export default function ArticlePage() {
             <Link href="/contact" className="rounded-full border border-white px-8 py-3 text-white text-sm hover:bg-white hover:text-black transition-colors duration-300">
               Get a Quote
             </Link>
-            <Link href="https://thegoldsmithsbench.bloom.io/schedule" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-8 py-3 text-sm hover:bg-gray-200 transition-colors duration-300">
+            <Link href="https://virtualgoldsmith.bloom.io/get-started-11" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-white text-black px-8 py-3 text-sm hover:bg-gray-200 transition-colors duration-300">
               <CalendarDays size={15} /> Book Appointment
             </Link>
           </div>

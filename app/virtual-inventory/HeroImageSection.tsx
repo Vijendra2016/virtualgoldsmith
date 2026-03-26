@@ -33,7 +33,7 @@ export default function VirtualInventoryHeroSection() {
           </Link>
 
           <Link
-            href="https://thegoldsmithsbench.bloom.io/schedule"
+            href="https://virtualgoldsmith.bloom.io/get-started-11"
             className="inline-block mt-10 ml-4 rounded-full border border-white
                        px-8 py-3 text-white text-sm
                        hover:bg-white hover:text-black

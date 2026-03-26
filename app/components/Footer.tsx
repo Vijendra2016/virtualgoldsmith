@@ -46,7 +46,7 @@ export default function Footer() {
                 todd@virtualgoldsmith.com
               </a>
               <Link
-                href="https://thegoldsmithsbench.bloom.io/schedule"
+                href="https://virtualgoldsmith.bloom.io/get-started-11"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
@@ -83,7 +83,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://thegoldsmithsbench.bloom.io/schedule"
+                  href="https://virtualgoldsmith.bloom.io/get-started-11"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"

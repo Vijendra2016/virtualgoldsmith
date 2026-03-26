@@ -135,7 +135,7 @@ export default function BlogPage() {
               Get in Touch
             </Link>
             <Link
-              href="https://thegoldsmithsbench.bloom.io/schedule"
+              href="https://virtualgoldsmith.bloom.io/get-started-11"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full bg-white text-black px-8 py-3 text-sm hover:bg-gray-200 transition-colors duration-300"

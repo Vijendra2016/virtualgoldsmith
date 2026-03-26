@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   ],
 };
 
-const BOOKING_URL = "https://thegoldsmithsbench.bloom.io/schedule";
+const BOOKING_URL = "https://virtualgoldsmith.bloom.io/get-started-11";
 const HERO_IMAGE =
   "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58c897d8a8a879d5f45dd_pexels-janakukebal-30541169.jpg";
 

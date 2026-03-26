@@ -168,7 +168,7 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <Link
-            href="https://thegoldsmithsbench.bloom.io/schedule"
+            href="https://virtualgoldsmith.bloom.io/get-started-11"
             className="hidden lg:flex items-center bg-black text-white gap-2 text-sm font-medium px-4 py-2 rounded-full hover:bg-gray-800"
           >
             <CalendarDays size={18} />
@@ -270,7 +270,7 @@ export default function Navbar() {
 
             {/* Mobile CTA */}
             <Link
-              href="https://thegoldsmithsbench.bloom.io/schedule"
+              href="https://virtualgoldsmith.bloom.io/get-started-11"
               onClick={closeMenus}
               className="flex items-center justify-center bg-black text-white gap-2 text-sm font-medium px-4 py-3 rounded-full mt-4"
             >

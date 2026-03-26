@@ -37,7 +37,7 @@ export default function AboutPage() {
                 Contact
               </Link>
               <Link
-                href="https://thegoldsmithsbench.bloom.io/schedule"
+                href="https://virtualgoldsmith.bloom.io/get-started-11"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="about-hero-cta inline-block rounded-full border border-white px-8 py-3 text-white text-sm hover:bg-white hover:text-black transition-colors duration-300"
@@ -155,7 +155,7 @@ export default function AboutPage() {
               Contact Us
             </Link>
             <Link
-              href="https://thegoldsmithsbench.bloom.io/schedule"
+              href="https://virtualgoldsmith.bloom.io/get-started-11"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full bg-white text-black px-8 py-3 text-sm hover:bg-gray-200 transition-colors duration-300"

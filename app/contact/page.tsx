@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CalendarDays, Mail, Phone, MapPin } from "lucide-react";
+import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact | Virtual Goldsmith",
@@ -52,10 +53,10 @@ export default function ContactPage() {
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Email</p>
                   <a
-                    href="mailto:todd@virtualgoldsmith.com"
+                    href="mailto:contact@virtualgoldsmith.com"
                     className="text-gray-900 font-medium hover:underline"
                   >
-                    todd@virtualgoldsmith.com
+                    contact@virtualgoldsmith.com
                   </a>
                 </div>
               </div>
@@ -67,7 +68,7 @@ export default function ContactPage() {
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Book a Consultation</p>
                   <Link
-                    href="https://thegoldsmithsbench.bloom.io/schedule"
+                    href="https://virtualgoldsmith.bloom.io/get-started-11"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-900 font-medium hover:underline"
@@ -80,7 +81,7 @@ export default function ContactPage() {
 
             {/* Book Appointment CTA */}
             <Link
-              href="https://thegoldsmithsbench.bloom.io/schedule"
+              href="https://virtualgoldsmith.bloom.io/get-started-11"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-black text-white px-8 py-4 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors duration-300"
@@ -93,93 +94,7 @@ export default function ContactPage() {
           {/* Right — Form */}
           <div className="bg-gray-50 rounded-2xl p-8 md:p-10 border border-gray-100">
             <h3 className="text-xl font-semibold text-gray-900 mb-8">Send a Message</h3>
-
-            <form
-              action="https://formsubmit.co/todd@virtualgoldsmith.com"
-              method="POST"
-              className="space-y-6"
-            >
-              {/* Disable captcha redirect */}
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://virtualgoldsmith.com/contact?sent=true" />
-              <input type="hidden" name="_subject" value="New message from Virtual Goldsmith website" />
-
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    First Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="first_name"
-                    required
-                    placeholder="Todd"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Last Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="last_name"
-                    required
-                    placeholder="Michael"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="you@example.com"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Service You're Interested In
-                </label>
-                <select
-                  name="service"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition"
-                >
-                  <option value="">Select a service...</option>
-                  <option value="CAD Design">CAD Design</option>
-                  <option value="Jewelry Drawing & Illustration">Jewelry Drawing & Illustration</option>
-                  <option value="Virtual Inventory">Virtual Inventory</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Message <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  name="message"
-                  required
-                  rows={5}
-                  placeholder="Tell us about your project or idea..."
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-black text-white py-4 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors duration-300"
-              >
-                Send Message
-              </button>
-            </form>
+            <ContactForm />
           </div>
 
         </div>
@@ -193,7 +108,7 @@ export default function ContactPage() {
             Book a call and Todd will walk you through the process, answer your questions, and help you figure out the best path forward.
           </p>
           <Link
-            href="https://thegoldsmithsbench.bloom.io/schedule"
+            href="https://virtualgoldsmith.bloom.io/get-started-11"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-white text-black px-10 py-4 text-sm font-medium hover:bg-gray-200 transition-colors duration-300"

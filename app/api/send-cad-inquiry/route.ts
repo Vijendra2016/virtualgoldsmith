@@ -26,7 +26,8 @@ export async function POST(req: NextRequest) {
 
     // Internal notification to contact@virtualgoldsmith.com
     await transporter.sendMail({
-      from: `"${first_name} ${last_name}" <${email}>`,
+      from: process.env.GMAIL_USER,
+      replyTo: `"${first_name} ${last_name}" <${email}>`,
       to: 'contact@virtualgoldsmith.com',
       subject: `New CAD Quote Request — ${location || 'Virtual Goldsmith'}`,
       html: `

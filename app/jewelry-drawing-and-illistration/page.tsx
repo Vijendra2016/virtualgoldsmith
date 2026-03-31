@@ -138,27 +138,18 @@ const steps = [
 
 const galleryImages = [
   {
-    src: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a66f8ad84af3158804207a_CAD%20JEWELLERY%20SERVICES%20.jpeg",
+    src: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69cbd0b4c15d1933713ec2b8_IMG_2426.JPG",
     alt: "Jewelry illustration and design drawing services by Virtual Goldsmith",
     className: "md:col-span-2 h-80",
   },
   {
-    src: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a6783f3ecb245ade44d99e_cadringdesign2.jpeg",
+    src: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69cbcf59028cf31533569aaf_Untitled_Artwork(1).jpg",
     alt: "Custom ring design illustration - eternity band concept sketch",
     className: "h-80",
   },
+  
   {
-    src: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58798bcce5ba0379b9510_ringgold.jpeg",
-    alt: "Jewelry design drawing - gold ring presentation illustration",
-    className: "h-64",
-  },
-  {
-    src: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a678462104709c7dfa52f0_cadringdesign4.jpeg",
-    alt: "Counter sketch - custom engagement ring design proposal",
-    className: "h-64",
-  },
-  {
-    src: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58d5f081a4da94ec4e4c6_pexels-cottonbro-9430438.jpg",
+    src: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69cbd0ef554038b3e64245e9_IMG_2427.JPG",
     alt: "Jewelry design illustration process - Todd Michael Virtual Goldsmith",
     className: "md:col-span-2 h-64",
   },
@@ -278,9 +269,9 @@ export default function JewelryDrawingIllustrationPage() {
               View Illustration Portfolio <ArrowRight size={15} />
             </Link>
           </div>
-          <div className="svc-intro-image opacity-0 relative h-[500px] rounded-2xl overflow-hidden">
+          <div className="svc-intro-image opacity-0 relative h-[1000px] rounded-2xl overflow-hidden">
             <Image
-              src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a678462104709c7dfa52f0_cadringdesign4.jpeg"
+              src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69cbd0b4c15d1933713ec2b8_IMG_2426.JPG"
               alt="Jewelry illustration and counter sketching by Todd Michael - Virtual Goldsmith"
               fill className="object-cover"
             />

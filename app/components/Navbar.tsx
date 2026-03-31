@@ -154,6 +154,21 @@ export default function Navbar() {
                       <span className="text-gray-400 group-hover/item:translate-x-1 transition">→</span>
                     </Link>
 
+                    <Link
+                      href="/jewelry-3d-scanning"
+                      onClick={closeMenus}
+                      className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition group/item"
+                    >
+                      <Image
+                        src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
+                        alt="Jewellery 3D Scanning"
+                        width={36}
+                        height={36}
+                      />
+                      <span className="font-medium text-gray-800 flex-1">Jewellery 3D Scanning</span>
+                      <span className="text-gray-400 group-hover/item:translate-x-1 transition">→</span>
+                    </Link>
+
                   </div>
                 </div>
               )}
@@ -246,6 +261,20 @@ export default function Navbar() {
                       height={30}
                     />
                     Virtual Inventory
+                  </Link>
+
+                  <Link
+                    href="/jewelry-3d-scanning"
+                    onClick={closeMenus}
+                    className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50"
+                  >
+                    <Image
+                      src="https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a682564cae3d53a19072dd_menu-3d-cad-design.png"
+                      alt="Jewellery 3D Scanning"
+                      width={30}
+                      height={30}
+                    />
+                    Jewellery 3D Scanning
                   </Link>
 
                 </div>

@@ -145,13 +145,68 @@ const projects = [
     category: "Jewelry Illustration",
   },
   {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f2156ac8e5be80f14f3266_1acdef51-38e2-408d-b457-900d086ba7d2.JPG",
+    title: "Scan 1",
+    category: "Jewellery Scans",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f21598410f457853e9a54f_3a04d5e7-0cc8-422d-ae0b-ce7dce6b1365.JPG",
+    title: "Scan 2",
+    category: "Jewellery Scans",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f215bf66da740919249fd2_5820AF72-47F3-4017-85D1-ABDE47F1002C.JPG",
+    title: "Scan 3",
+    category: "Jewellery Scans",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f215e68b4bce1864a37ca5_att.QrjkZwEoQUJUtGaNO-jRHmSfRZGnT_B8nuM-2BEAbF8.JPG",
+    title: "Scan 4",
+    category: "Jewellery Scans",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f216a6c27a33db321df244_IMG_2088.JPG",
+    title: "Scan 5",
+    category: "Jewellery Scans",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f216cfe1433ca04609b362_IMG_2223.JPG",
+    title: "Scan 6",
+    category: "Jewellery Scans",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f21712d1b06b563a791807_IMG_2375.JPG",
+    title: "Scan 7",
+    category: "Jewellery Scans",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f2173eeab70a16dc917672_IMG_2955.JPG",
+    title: "Scan 8",
+    category: "Jewellery Scans",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f2175c8626cda95d97c5fb_IMG_2956.JPG",
+    title: "Scan 9",
+    category: "Jewellery Scans",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f21783774101f2463cb308_IMG_5321.JPG",
+    title: "Scan 10",
+    category: "Jewellery Scans",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f217ba11c6e2ff620e8abf_IMG_5325.JPG",
+    title: "Scan 11",
+    category: "Jewellery Scans",
+  },
+  {
     image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58d5f081a4da94ec4e4c6_pexels-cottonbro-9430438.jpg",
     title: "Signature Pendant Necklace",
     category: "Virtual Inventory",
   },
 ];
 
-const categories = ["All", "CAD Design", "Jewelry Illustration", "Virtual Inventory"];
+const categories = ["All", "CAD Design", "Jewelry Illustration", "Jewellery Scans", "Virtual Inventory"];
 
 export default function PortfolioClient() {
   const [active, setActive] = useState("All");

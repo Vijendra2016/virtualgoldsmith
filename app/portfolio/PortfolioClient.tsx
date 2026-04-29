@@ -10,52 +10,144 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58798bcce5ba0379b9510_ringgold.jpeg",
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f20d54a8b0267093e59eab_43D02708-DA74-4EA3-9434-2FEB7464B9B4.PNG",
     title: "Royal Solitaire Ring",
     category: "CAD Design",
-    description: "18k yellow gold solitaire with precision-set 1.5ct round brilliant diamond.",
   },
   {
-    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a678462104709c7dfa52f0_cadringdesign4.jpeg",
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0aa033d4c648a1ba1d1c8_CD434081-7251-4C7B-A397-DDF2A7B41FEB.PNG",
     title: "Halo Engagement Ring",
     category: "CAD Design",
-    description: "Platinum halo setting with pavé band, designed for a 2ct oval center stone.",
   },
   {
-    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a6783f3ecb245ade44d99e_cadringdesign2.jpeg",
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0a9fe3f283ca679c90f98_EA7AD74B-4565-491B-8209-6B27ADE4D4A5.PNG",
     title: "Eternity Band",
     category: "CAD Design",
-    description: "Full eternity band in 18k white gold with channel-set princess cut diamonds.",
   },
   {
-    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58798bcce5ba0379b9510_ringgold.jpeg",
-    title: "Vintage Filigree Ring",
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0aa188662cdba71b6f5c5_1A94ADC7-CE0A-4C4C-8E9A-7DF6B163C747.PNG",
+    title: "Illustration 1",
     category: "Jewelry Illustration",
-    description: "Hand-illustrated vintage filigree design later translated into a production CAD file.",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0aa132dbd216ab3ca19c1_1DDD5D40-0646-4DA3-8054-F6AFE2E2DAC7.PNG",
+    title: "Illustration 2",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f210333128dac7df4ee6e8_3B564C6E-3E01-42B3-851D-9EFBDBDC51EE.PNG",
+    title: "Illustration 3",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0aa0d462103439d512560_09FE961B-39EA-40B9-AC80-A183CE4825C9.PNG",
+    title: "Illustration 4",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0aa189f6faa770eb90285_17EC36FB-69B7-4DE0-9053-39ACD9B100D3.PNG",
+    title: "Illustration 5",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0aa18771d529d98885051_737CD516-FDD1-42DE-B3F9-0C6751727EA6.PNG",
+    title: "Illustration 6",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f210bb2f3ebbba0260ad49_3588BB56-B24B-41D0-8FBC-0E49BF9338AC.PNG",
+    title: "Illustration 7",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0a9fcbaa1909facb3a68a_6566DAAF-C680-4C4D-8849-77D8E56474D6.PNG",
+    title: "Illustration 8",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0aa5360680152fd65a835_666192DE-133C-4BC6-9C03-14818C09C74B.PNG",
+    title: "Illustration 9",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0aa05e581ca467e31d76a_A54DD35F-98AF-4B2F-B9B1-14B01AA4954D.PNG",
+    title: "Illustration 10",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0aa51251b3e8c6c66667f_B1BCCA44-B090-412D-A348-07FAC2977A9E.PNG",
+    title: "Illustration 11",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0a9feb339bcae423eb646_CBFE7522-EF78-481E-A54C-06DA1C9F523D.PNG",
+    title: "Illustration 12",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0aa04982da11255743959_D49D86A4-33D7-46DA-B35C-A384A191D712.PNG",
+    title: "Illustration 13",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f21240a8b0267093e782e3_IMG_2945.JPG",
+    title: "Illustration 14",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f212664a36ed418caf8bed_IMG_2946%20(1).JPG",
+    title: "Illustration 15",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f2129b600c707b5cc837ab_IMG_2948%20(1).JPG",
+    title: "Illustration 16",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f212c21db6ec75bb4cc0e2_IMG_2950.JPG",
+    title: "Illustration 17",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f212ea31f512ef624762c1_IMG_2951%20(1).JPG",
+    title: "Illustration 18",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f21311bf3611fc4a32243f_IMG_2952.JPG",
+    title: "Illustration 19",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f2133041ca1b34e5bd7247_IMG_2953.JPG",
+    title: "Illustration 20",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f21352875b720df142722b_IMG_2954.JPG",
+    title: "Illustration 21",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f2137776b6014772ae2ec0_IMG_2957%20(1).JPG",
+    title: "Illustration 22",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f21396c11dcc9f2a72096d_IMG_2959.JPG",
+    title: "Illustration 23",
+    category: "Jewelry Illustration",
+  },
+  {
+    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f213d60219edc1c4b76bc5_IMG_2960.JPG",
+    title: "Illustration 24",
+    category: "Jewelry Illustration",
   },
   {
     image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58d5f081a4da94ec4e4c6_pexels-cottonbro-9430438.jpg",
     title: "Signature Pendant Necklace",
     category: "Virtual Inventory",
-    description: "Photorealistic render of a bespoke pendant created for an online jewelry retailer.",
-  },
-  {
-    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a678462104709c7dfa52f0_cadringdesign4.jpeg",
-    title: "Three-Stone Anniversary Ring",
-    category: "CAD Design",
-    description: "Three-stone ring in rose gold featuring a round brilliant flanked by pear-shaped side stones.",
-  },
-  {
-    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a6783f3ecb245ade44d99e_cadringdesign2.jpeg",
-    title: "Stackable Bands Collection",
-    category: "CAD Design",
-    description: "A set of five stackable bands designed to be worn together or individually.",
-  },
-  {
-    image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58798bcce5ba0379b9510_ringgold.jpeg",
-    title: "Bezel-Set Emerald Ring",
-    category: "Jewelry Illustration",
-    description: "Detailed illustration and CAD for a bezel-set emerald ring in 14k yellow gold.",
   },
 ];
 
@@ -192,22 +284,16 @@ export default function PortfolioClient() {
             {filtered.map((project) => (
               <div
                 key={project.title}
-                className="port-card group rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-300"
+                className="port-card group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={400}
-                    height={400}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-5">
-                  <span className="text-xs tracking-widest uppercase text-gray-400">{project.category}</span>
-                  <h3 className="text-lg font-semibold text-gray-900 mt-1 mb-2">{project.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{project.description}</p>
-                </div>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={400}
+                  height={400}
+                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
               </div>
             ))}
           </div>

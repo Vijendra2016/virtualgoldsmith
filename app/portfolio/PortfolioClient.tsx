@@ -2,9 +2,11 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { virtualInventoryProducts } from "@/app/virtual-inventory/products";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,7 +49,12 @@ const projects = [
   { image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f2175c8626cda95d97c5fb_IMG_2956.JPG", category: "Jewellery Scans" },
   { image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f21783774101f2463cb308_IMG_5321.JPG", category: "Jewellery Scans" },
   { image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f217ba11c6e2ff620e8abf_IMG_5325.JPG", category: "Jewellery Scans" },
-  { image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69a58d5f081a4da94ec4e4c6_pexels-cottonbro-9430438.jpg", category: "Virtual Inventory" },
+  ...virtualInventoryProducts.map((p) => ({
+    image: p.mainImage,
+    category: "Virtual Inventory" as const,
+    virtualInventoryId: p.id,
+    title: p.title,
+  })),
 ];
 
 const categories = ["All", "CAD Design", "Jewelry Illustration", "Jewellery Scans", "Virtual Inventory"];
@@ -55,10 +62,18 @@ const categories = ["All", "CAD Design", "Jewelry Illustration", "Jewellery Scan
 export default function PortfolioClient() {
   const [active, setActive] = useState("All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const router = useRouter();
 
   const filtered = active === "All" ? projects : projects.filter((p) => p.category === active);
 
-  const openLightbox = (index: number) => setLightboxIndex(index);
+  const openLightbox = (index: number) => {
+    const project = filtered[index];
+    if ("virtualInventoryId" in project && project.virtualInventoryId) {
+      router.push(`/portfolio/virtual-inventory/${project.virtualInventoryId}`);
+      return;
+    }
+    setLightboxIndex(index);
+  };
   const closeLightbox = () => setLightboxIndex(null);
 
   const prev = useCallback(() => {
@@ -182,21 +197,31 @@ export default function PortfolioClient() {
       {/* Masonry Grid */}
       <section className="px-4 md:px-8 pb-24 max-w-[1600px] mx-auto">
         <div className="columns-2 md:columns-3 lg:columns-4 gap-4">
-          {filtered.map((project, i) => (
-            <div
-              key={project.image + i}
-              className="break-inside-avoid mb-4 overflow-hidden rounded-xl cursor-pointer group relative"
-              onClick={() => openLightbox(i)}
-            >
-              <img
-                src={project.image}
-                alt={project.category}
-                className="w-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-xl"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-xl" />
-            </div>
-          ))}
+          {filtered.map((project, i) => {
+            const isVI = "virtualInventoryId" in project && project.virtualInventoryId;
+            return (
+              <div
+                key={project.image + i}
+                className="break-inside-avoid mb-4 overflow-hidden rounded-xl cursor-pointer group relative"
+                onClick={() => openLightbox(i)}
+              >
+                <img
+                  src={project.image}
+                  alt={project.category}
+                  className="w-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-xl"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-xl" />
+                {isVI && (
+                  <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="bg-white/90 text-black text-xs px-3 py-1 rounded-full font-medium">
+                      View Details →
+                    </span>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         {filtered.length === 0 && (

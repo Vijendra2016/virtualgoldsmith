@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import PortfolioClient from "./PortfolioClient";
+import { getProducts } from "@/lib/getProducts";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Portfolio | Virtual Goldsmith",
@@ -7,5 +10,6 @@ export const metadata: Metadata = {
 };
 
 export default function PortfolioPage() {
-  return <PortfolioClient />;
+  const products = getProducts();
+  return <PortfolioClient virtualInventoryProducts={products} />;
 }

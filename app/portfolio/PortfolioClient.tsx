@@ -6,11 +6,11 @@ import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { virtualInventoryProducts } from "@/app/virtual-inventory/products";
+import { VirtualInventoryProduct } from "@/app/virtual-inventory/products";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projects = [
+const staticProjects = [
   { image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f20d54a8b0267093e59eab_43D02708-DA74-4EA3-9434-2FEB7464B9B4.PNG", category: "CAD Design" },
   { image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0aa033d4c648a1ba1d1c8_CD434081-7251-4C7B-A397-DDF2A7B41FEB.PNG", category: "CAD Design" },
   { image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f0a9fe3f283ca679c90f98_EA7AD74B-4565-491B-8209-6B27ADE4D4A5.PNG", category: "CAD Design" },
@@ -49,17 +49,21 @@ const projects = [
   { image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f2175c8626cda95d97c5fb_IMG_2956.JPG", category: "Jewellery Scans" },
   { image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f21783774101f2463cb308_IMG_5321.JPG", category: "Jewellery Scans" },
   { image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f217ba11c6e2ff620e8abf_IMG_5325.JPG", category: "Jewellery Scans" },
-  ...virtualInventoryProducts.map((p) => ({
-    image: p.mainImage,
-    category: "Virtual Inventory" as const,
-    virtualInventoryId: p.id,
-    title: p.title,
-  })),
 ];
 
 const categories = ["All", "CAD Design", "Jewelry Illustration", "Jewellery Scans", "Virtual Inventory"];
 
-export default function PortfolioClient() {
+export default function PortfolioClient({ virtualInventoryProducts }: { virtualInventoryProducts: VirtualInventoryProduct[] }) {
+  const projects = [
+    ...staticProjects,
+    ...virtualInventoryProducts.map((p) => ({
+      image: p.mainImage,
+      category: "Virtual Inventory" as const,
+      virtualInventoryId: p.id,
+      title: p.title,
+    })),
+  ];
+
   const [active, setActive] = useState("All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const router = useRouter();
@@ -212,7 +216,7 @@ export default function PortfolioClient() {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-xl" />
-                {isVI && (
+                {!!isVI && (
                   <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="bg-white/90 text-black text-xs px-3 py-1 rounded-full font-medium">
                       View Details →

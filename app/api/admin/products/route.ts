@@ -1,14 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import path from 'path';
+import { ADMIN_PASSWORD } from '@/lib/adminConfig';
 
 const dataPath = path.join(process.cwd(), 'data', 'products.json');
 
 function isAuthorized(req: NextRequest) {
-  return (
-    process.env.ADMIN_PASSWORD &&
-    req.headers.get('x-admin-password') === process.env.ADMIN_PASSWORD
-  );
+  return req.headers.get('x-admin-password') === ADMIN_PASSWORD;
 }
 
 export async function GET(req: NextRequest) {

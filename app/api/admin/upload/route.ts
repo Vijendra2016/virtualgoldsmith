@@ -1,12 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { writeFileSync, mkdirSync, existsSync } from 'fs';
 import path from 'path';
+import { ADMIN_PASSWORD } from '@/lib/adminConfig';
 
 function isAuthorized(req: NextRequest) {
-  return (
-    process.env.ADMIN_PASSWORD &&
-    req.headers.get('x-admin-password') === process.env.ADMIN_PASSWORD
-  );
+  return req.headers.get('x-admin-password') === ADMIN_PASSWORD;
 }
 
 export async function POST(req: NextRequest) {

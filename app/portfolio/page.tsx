@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Browse the Virtual Goldsmith portfolio — a curated collection of custom jewelry CAD designs, digital renders, and finished pieces spanning rings, pendants, bracelets, and more.",
 };
 
-export default function PortfolioPage() {
-  const products = getProducts();
+export default async function PortfolioPage() {
+  const products = await getProducts();
   return <PortfolioClient virtualInventoryProducts={products} />;
 }

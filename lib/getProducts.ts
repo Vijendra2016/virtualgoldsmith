@@ -12,17 +12,21 @@ function getProductsFromFile(): VirtualInventoryProduct[] {
 }
 
 export async function getProducts(): Promise<VirtualInventoryProduct[]> {
-  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+  if (process.env.JSONBIN_BIN_ID && process.env.JSONBIN_API_KEY) {
     try {
-      const { kv } = await import('@vercel/kv');
-      const products = await kv.get<VirtualInventoryProduct[]>('products');
-      if (products && Array.isArray(products)) return products;
-      // KV is empty — seed it from the local JSON file on first use
-      const seed = getProductsFromFile();
-      await kv.set('products', seed);
-      return seed;
+      const res = await fetch(
+        `https://api.jsonbin.io/v3/b/${process.env.JSONBIN_BIN_ID}/latest`,
+        {
+          headers: { 'X-Master-Key': process.env.JSONBIN_API_KEY },
+          next: { revalidate: 0 },
+        }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        return data.record;
+      }
     } catch (err) {
-      console.error('KV read failed, falling back to file:', err);
+      console.error('JSONBin read failed, falling back to file:', err);
     }
   }
   return getProductsFromFile();

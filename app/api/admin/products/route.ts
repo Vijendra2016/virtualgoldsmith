@@ -22,11 +22,16 @@ export async function GET(req: NextRequest) {
         headers: { 'X-Master-Key': API_KEY! },
       });
       const data = await res.json();
+      if (!res.ok) {
+        console.error('JSONBin GET failed:', res.status, data);
+        return NextResponse.json([], { status: 200 });
+      }
       return NextResponse.json(data.record ?? []);
     }
     const data = JSON.parse(readFileSync(dataPath, 'utf-8'));
     return NextResponse.json(data);
-  } catch {
+  } catch (err) {
+    console.error('GET products error:', err);
     return NextResponse.json([], { status: 200 });
   }
 }
@@ -46,7 +51,12 @@ export async function PUT(req: NextRequest) {
         },
         body: JSON.stringify(products),
       });
-      if (!res.ok) throw new Error(`JSONBin error: ${res.status}`);
+      const data = await res.json();
+      if (!res.ok) {
+        const msg = data?.message ?? `JSONBin error ${res.status}`;
+        console.error('JSONBin PUT failed:', res.status, data);
+        return NextResponse.json({ error: msg }, { status: 500 });
+      }
       return NextResponse.json({ ok: true });
     }
     const dir = path.join(process.cwd(), 'data');
@@ -54,10 +64,7 @@ export async function PUT(req: NextRequest) {
     writeFileSync(dataPath, JSON.stringify(products, null, 2));
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error('Failed to save products:', err);
-    return NextResponse.json(
-      { error: 'Failed to save. Add JSONBIN_BIN_ID and JSONBIN_API_KEY to your env vars.' },
-      { status: 500 }
-    );
+    console.error('PUT products error:', err);
+    return NextResponse.json({ error: String(err) }, { status: 500 });
   }
 }

@@ -42,6 +42,7 @@ export default function AdminPage() {
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [toast, setToast] = useState('');
+  const [toastError, setToastError] = useState(false);
 
   const mainFileRef = useRef<HTMLInputElement>(null);
   const thumbFileRef = useRef<HTMLInputElement>(null);
@@ -51,9 +52,10 @@ export default function AdminPage() {
     [password]
   );
 
-  function showToast(msg: string) {
+  function showToast(msg: string, isError = false) {
     setToast(msg);
-    setTimeout(() => setToast(''), 3000);
+    setToastError(isError);
+    setTimeout(() => setToast(''), 4000);
   }
 
   async function login() {
@@ -88,7 +90,8 @@ export default function AdminPage() {
       setEditing(null);
       showToast('Saved successfully!');
     } else {
-      showToast('Save failed. Please try again.');
+      const body = await res.json().catch(() => ({}));
+      showToast(body.error ?? 'Save failed. Please try again.', true);
     }
     setSaving(false);
   }
@@ -202,7 +205,7 @@ export default function AdminPage() {
         <h1 className="text-lg font-bold text-gray-900">Virtual Inventory Admin</h1>
         <div className="flex items-center gap-3">
           {toast && (
-            <span className="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">
+            <span className={`text-sm font-medium px-3 py-1 rounded-full ${toastError ? 'text-red-600 bg-red-50' : 'text-green-600 bg-green-50'}`}>
               {toast}
             </span>
           )}

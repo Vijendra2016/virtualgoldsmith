@@ -26,8 +26,16 @@ export async function PUT(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
   const products = await req.json();
-  const dir = path.join(process.cwd(), 'data');
-  if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
-  writeFileSync(dataPath, JSON.stringify(products, null, 2));
-  return NextResponse.json({ ok: true });
+  try {
+    const dir = path.join(process.cwd(), 'data');
+    if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
+    writeFileSync(dataPath, JSON.stringify(products, null, 2));
+    return NextResponse.json({ ok: true });
+  } catch (err) {
+    console.error('Failed to write products.json:', err);
+    return NextResponse.json(
+      { error: 'Failed to save. The server filesystem may be read-only (e.g. Vercel).' },
+      { status: 500 }
+    );
+  }
 }

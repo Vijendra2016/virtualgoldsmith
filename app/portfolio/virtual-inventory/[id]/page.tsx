@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getProducts } from "@/lib/getProducts";
 import VirtualInventoryDetailClient from "./VirtualInventoryDetailClient";
 
+export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 
 export async function generateStaticParams() {

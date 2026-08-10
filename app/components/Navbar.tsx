@@ -99,7 +99,7 @@ export default function Navbar() {
             {/* Services — click-based for touch compatibility */}
             <div className="relative" ref={desktopDropdownRef}>
               <button
-                className="flex items-center gap-1 cursor-pointer "
+                className="flex items-center gap-1 cursor-pointer"
                 onClick={() => setDesktopServiceOpen(!desktopServiceOpen)}
               >
                 Services <ChevronDown size={16} className={`transition-transform ${desktopServiceOpen ? "rotate-180" : ""}`} />

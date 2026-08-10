@@ -51,7 +51,7 @@ const staticProjects = [
   { image: "https://cdn.prod.website-files.com/67860b0fa33a316e96823102/69f217ba11c6e2ff620e8abf_IMG_5325.JPG", category: "Jewellery Scans" },
 ];
 
-const categories = ["All", "CAD Design", "Drawing and Ignite Cards", "Jewellery Scans", "Virtual Inventory"];
+const categories = ["All", "CAD Design", "Jewelry Illustration", "Jewellery Scans", "Virtual Inventory"];
 
 export default function PortfolioClient({ virtualInventoryProducts }: { virtualInventoryProducts: VirtualInventoryProduct[] }) {
   const projects = [

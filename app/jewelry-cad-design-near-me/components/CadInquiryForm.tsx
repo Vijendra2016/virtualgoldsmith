@@ -128,7 +128,7 @@ export default function CadInquiryForm({ cityDisplayName, citySlug }: CadInquiry
         >
           <option value="">Select a service...</option>
           <option value="CAD Design">Jewelry CAD Design</option>
-          <option value="Jewelry Drawing & Illustration">Jewelry Drawing &amp; Illustration</option>
+          <option value="Jewelry Drawing & Illustration">Drawing and Ignite Cards</option>
           <option value="Virtual Inventory">Virtual Inventory / 3D Renders</option>
           <option value="Multiple Services">Multiple Services</option>
           <option value="Not Sure">Not Sure — Need Guidance</option>

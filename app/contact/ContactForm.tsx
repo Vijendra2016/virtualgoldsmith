@@ -90,6 +90,7 @@ export default function ContactForm() {
           <option value="CAD Design">CAD Design</option>
           <option value="Jewelry Drawing & Illustration">Jewelry Drawing &amp; Illustration</option>
           <option value="Virtual Inventory">Virtual Inventory</option>
+           <option value="Ignite Cards">Ignite Cards</option>
           <option value="Other">Other</option>
         </select>
       </div>

@@ -135,7 +135,7 @@ export default function Navbar() {
                         width={36}
                         height={36}
                       />
-                      <span className="font-medium text-gray-800 flex-1">Jewelry Drawing & Illustration</span>
+                      <span className="font-medium text-gray-800 flex-1">Jewelry Drawing and Ignite Cards</span>
                       <span className="text-gray-400 group-hover/item:translate-x-1 transition">→</span>
                     </Link>
 

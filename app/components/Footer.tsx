@@ -68,7 +68,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/jewelry-drawing-and-illistration" className="hover:text-white transition-colors">
-                  Jewelry Drawing & Illustration
+                  Drawing and Ignite Cards
                 </Link>
               </li>
               <li>

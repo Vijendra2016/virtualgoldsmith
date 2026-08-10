@@ -246,7 +246,7 @@ export default function Navbar() {
                       width={30}
                       height={30}
                     />
-                    Jewelry Drawing & Illustration
+                    Drawing and Ignite Cards
                   </Link>
 
                   <Link

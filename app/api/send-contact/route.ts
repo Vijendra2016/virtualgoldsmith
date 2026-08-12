@@ -2,12 +2,27 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import nodemailer from 'nodemailer';
 
+// Minimum time (ms) a real visitor needs to fill out the form. Bots that
+// submit instantly after loading the page land under this and get silently
+// dropped.
+const MIN_FILL_TIME_MS = 3000;
+
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { first_name, last_name, email, service, message } = body;
+  const { first_name, last_name, email, service, message, website, elapsed_ms } = body;
 
   if (!first_name || !email || !message) {
     return NextResponse.json({ message: 'Missing required fields' }, { status: 400 });
+  }
+
+  // Spam checks: a filled honeypot or a too-fast submission means a bot.
+  // Respond with the normal success shape so the bot doesn't learn to
+  // adapt, but skip actually sending any mail.
+  const honeypotTripped = typeof website === 'string' && website.trim().length > 0;
+  const submittedTooFast = typeof elapsed_ms === 'number' && elapsed_ms < MIN_FILL_TIME_MS;
+  if (honeypotTripped || submittedTooFast) {
+    console.warn('Blocked likely spam submission', { honeypotTripped, elapsed_ms });
+    return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
   }
 
   try {

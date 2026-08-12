@@ -4,6 +4,9 @@ import { useState } from 'react';
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  // Timestamp the form mounted. Bots typically submit within milliseconds of
+  // loading the page; real visitors take at least a couple seconds to type.
+  const [loadedAt] = useState(() => Date.now());
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -16,6 +19,10 @@ export default function ContactForm() {
       email: (form.elements.namedItem('email') as HTMLInputElement).value,
       service: (form.elements.namedItem('service') as HTMLSelectElement).value,
       message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+      // Honeypot: hidden from real users, but bots that auto-fill every
+      // field will populate it. Non-empty means "reject as spam".
+      website: (form.elements.namedItem('website') as HTMLInputElement).value,
+      elapsed_ms: Date.now() - loadedAt,
     };
 
     try {
@@ -38,6 +45,16 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Honeypot: kept off-screen and out of tab order so real visitors
+          never see or fill it. Bots that auto-fill every field trip it. */}
+      <div
+        aria-hidden="true"
+        style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}
+      >
+        <label htmlFor="website">Website</label>
+        <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <div className="grid sm:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
